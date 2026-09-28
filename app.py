@@ -114,4 +114,4 @@ def delete_post(post_id):
 if __name__ == '__main__':
     # Use environment variable for debug mode (default to False for security)
     debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
-    app.run(debug=debug_mode, port=5000)
+    app.run(host="0.0.0.0", debug=debug_mode, port=5000)

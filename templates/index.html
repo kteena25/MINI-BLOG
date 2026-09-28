@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Blog Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Mini Blog</h1>
+            <p>Share your thoughts with the world</p>
+        </header>
+
+        <main>
+            <!-- Create Post Section -->
+            <section class="create-post-section">
+                <h2>Create a New Post</h2>
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="author">Author Name</label>
+                        <input 
+                            type="text" 
+                            id="author" 
+                            placeholder="Your name (optional)" 
+                            value="Anonymous"
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">Post Title</label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            placeholder="What's on your mind?" 
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="content">Post Content</label>
+                        <textarea 
+                            id="content" 
+                            rows="6" 
+                            placeholder="Write your blog post here..." 
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Publish Post</button>
+                </form>
+            </section>
+
+            <!-- Blog Posts Section -->
+            <section class="posts-section">
+                <h2>All Posts</h2>
+                <div id="postsList" class="posts-list">
+                    <p class="loading">Loading posts...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Post</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editAuthor">Author Name</label>
+                    <input type="text" id="editAuthor">
+                </div>
+                
+                <div class="form-group">
+                    <label for="editTitle">Post Title</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editContent">Post Content</label>
+                    <textarea id="editContent" rows="6" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
